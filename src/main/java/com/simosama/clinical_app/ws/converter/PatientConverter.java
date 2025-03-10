@@ -2,7 +2,9 @@ package com.simosama.clinical_app.ws.converter;
 
 import com.simosama.clinical_app.entities.Patient;
 import com.simosama.clinical_app.ws.dto.PatientDto;
+import org.springframework.stereotype.Component;
 
+@Component
 public class PatientConverter extends AbstractConverter<Patient, PatientDto>{
 
     @Override

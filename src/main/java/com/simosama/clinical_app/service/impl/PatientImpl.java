@@ -1,8 +1,6 @@
 package com.simosama.clinical_app.service.impl;
 
-import com.simosama.clinical_app.Repository.AppointmentRepository;
 import com.simosama.clinical_app.Repository.PatientRepository;
-import com.simosama.clinical_app.entities.Appointment;
 import com.simosama.clinical_app.entities.Patient;
 import com.simosama.clinical_app.service.facade.PatientService;
 import org.springframework.stereotype.Service;
@@ -29,14 +27,22 @@ public class PatientImpl implements PatientService {
         return patientRepository.findByLastName(lastName);
     }
     @Override
+    public Patient findById(Long id) {
+        Patient patientFound = null;
+        if(patientRepository.findById(id).isPresent()){
+        patientFound = patientRepository.findById(id).get();
+        }
+        return patientFound;
+    }
+
+    @Override
     public Patient savepatient(Patient patient) {
 
         return patientRepository.save(patient);
     }
     @Override
-    public int deletePatient(Long id) {
+    public void deletePatient(Long id) {
         patientRepository.deleteById(id);
-        return 0;
     }
 
 }

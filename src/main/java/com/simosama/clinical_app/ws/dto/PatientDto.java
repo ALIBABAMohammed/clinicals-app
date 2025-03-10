@@ -1,9 +1,5 @@
 package com.simosama.clinical_app.ws.dto;
 
-import com.simosama.clinical_app.entities.Appointment;
-
-import java.util.Collection;
-
 public class PatientDto {
 
     private Long id;
